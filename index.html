@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLN Security Private Limited</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles & Theme Configuration -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Custom Theme Colors */
+        .bg-brand-blue { background-color: #0d1b3e; }
+        .text-brand-blue { color: #0d1b3e; }
+        .bg-brand-yellow { background-color: #facc15; } /* Tailwind yellow-400 */
+        .text-brand-yellow { color: #facc15; }
+        .border-brand-yellow { border-color: #facc15; }
+        
+        /* Active Nav Link Style */
+        .nav-link.active {
+            color: #facc15;
+            border-bottom: 2px solid #facc15;
+        }
+        
+        /* Smooth transition for showing/hiding sections */
+        .page-section {
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            min-height: 60vh; /* Ensure sections have a minimum height */
+        }
+        .page-section.hidden {
+            opacity: 0;
+            transform: translateY(20px);
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        /* Spinner animation */
+        .loader {
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #0d1b3e; /* Blue */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header & Navigation -->
+    <header class="bg-brand-blue text-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-brand-yellow">
+                SLN Security
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#" class="nav-link active" data-page="home">Home</a>
+                <a href="#" class="nav-link" data-page="planner">✨ AI Planner</a>
+                <a href="#" class="nav-link" data-page="services">Our Services</a>
+                <a href="#" class="nav-link" data-page="careers">Careers</a>
+                <a href="#" class="nav-link" data-page="team">Our Team</a>
+                <a href="#" class="nav-link" data-page="competitors">Delhi NCR Market</a>
+            </div>
+            <a href="#" class="hidden md:block bg-brand-yellow text-brand-blue font-bold py-2 px-4 rounded-lg hover:bg-yellow-300 transition duration-300">
+                Get a Quote
+            </a>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#" class="nav-link block py-2 active" data-page="home">Home</a>
+            <a href="#" class="nav-link block py-2" data-page="planner">✨ AI Planner</a>
+            <a href="#" class="nav-link block py-2" data-page="services">Our Services</a>
+            <a href="#" class="nav-link block py-2" data-page="careers">Careers</a>
+            <a href="#" class="nav-link block py-2" data-page="team">Our Team</a>
+            <a href="#" class="nav-link block py-2" data-page="competitors">Delhi NCR Market</a>
+            <a href="#" class="mt-4 block bg-brand-yellow text-brand-blue font-bold py-2 px-4 rounded-lg text-center hover:bg-yellow-300 transition duration-300">
+                Get a Quote
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12 relative">
+
+        <!-- Home Section -->
+        <section id="home" class="page-section">
+            <div class="bg-white rounded-lg shadow-xl overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-8 md:p-12 flex flex-col justify-center">
+                        <h1 class="text-4xl md:text-5xl font-extrabold text-brand-blue">Your Trusted Partner in Security</h1>
+                        <p class="mt-4 text-lg text-gray-600">SLN Security provides comprehensive, reliable, and professional security solutions across the Delhi NCR region. Your safety is our mission.</p>
+                        <div class="mt-8">
+                            <a href="#" class="bg-brand-blue text-white font-bold py-3 px-6 rounded-lg hover:opacity-90 transition duration-300 transform hover:scale-105">Explore Our Services</a>
+                        </div>
+                    </div>
+                    <div class="hidden md:block">
+                        <img src="https://placehold.co/600x400/0d1b3e/facc15?text=SLN+Security" alt="SLN Security illustration" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- AI Security Planner Section -->
+        <section id="planner" class="page-section hidden">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-brand-blue">✨ AI-Powered Security Planner</h2>
+                <p class="text-gray-600 mt-2">Describe your security needs, and our AI will generate a preliminary plan.</p>
+            </div>
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-xl">
+                <div>
+                    <label for="security-prompt" class="block text-lg font-medium text-gray-700">Describe your event or property:</label>
+                    <textarea id="security-prompt" rows="5" class="mt-2 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-brand-yellow focus:border-brand-yellow" placeholder="e.g., A 3-day music festival in a large open field for 5000 people.&#10;e.g., A corporate office building with 200 employees and a public-facing reception.&#10;e.g., A wedding reception at a hotel with 300 guests."></textarea>
+                </div>
+                <div class="mt-6 text-center">
+                    <button id="generate-plan-btn" class="bg-brand-yellow text-brand-blue font-bold py-3 px-8 rounded-lg hover:bg-yellow-300 transition duration-300 transform hover:scale-105 inline-flex items-center">
+                        Generate Security Plan
+                    </button>
+                </div>
+                
+                <!-- Results Area -->
+                <div id="planner-results" class="mt-8 hidden">
+                    <div id="loader" class="flex justify-center items-center py-8">
+                        <div class="loader"></div>
+                        <p class="ml-4 text-gray-600">Generating your plan...</p>
+                    </div>
+                    <div id="results-content" class="hidden">
+                         <h3 class="text-2xl font-bold text-brand-blue border-b-2 border-brand-yellow pb-2">Preliminary Security Assessment</h3>
+                         <div id="gemini-output" class="mt-4 prose max-w-none prose-headings:text-brand-blue prose-strong:text-brand-blue">
+                             <!-- Gemini API response will be injected here -->
+                         </div>
+                    </div>
+                </div>
+                 <div id="error-message" class="mt-6 hidden text-center p-4 bg-red-100 text-red-700 rounded-lg">
+                    <p>Sorry, we couldn't generate a plan at this time. Please try again later.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="page-section hidden">
+             <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-brand-blue">Our Security Services</h2>
+                <p class="text-gray-600 mt-2">Tailored solutions for every security need.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Cards -->
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"><h3 class="text-xl font-bold text-brand-blue">Corporate Security</h3><p class="mt-2 text-gray-600">Professional guards and advanced surveillance for your office buildings and corporate campuses.</p></div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"><h3 class="text-xl font-bold text-brand-blue">Event Security</h3><p class="mt-2 text-gray-600">Expert crowd management and security protocols for concerts, conferences, and private events.</p></div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"><h3 class="text-xl font-bold text-brand-blue">Residential Security</h3><p class="mt-2 text-gray-600">Protecting communities and private residences with vigilant patrols and access control.</p></div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"><h3 class="text-xl font-bold text-brand-blue">Bouncer Services</h3><p class="mt-2 text-gray-600">Highly-trained bouncers for clubs, parties, and venues to ensure a safe and controlled environment.</p></div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"><h3 class="text-xl font-bold text-brand-blue">Personal Security Officer (PSO)</h3><p class="mt-2 text-gray-600">Dedicated and discreet personal security officers for VIPs, executives, and individuals requiring close protection.</p></div>
+                <div class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"><h3 class="text-xl font-bold text-brand-blue">Industrial Security</h3><p class="mt-2 text-gray-600">Securing manufacturing plants, warehouses, and industrial sites against theft and vandalism.</p></div>
+            </div>
+        </section>
+
+        <!-- Careers Section -->
+        <section id="careers" class="page-section hidden">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-brand-blue">Join Our Team</h2>
+                <p class="text-gray-600 mt-2">We are looking for dedicated professionals to join the SLN Security family.</p>
+            </div>
+            <div class="space-y-6 max-w-4xl mx-auto">
+                <!-- Job Openings -->
+                <div class="bg-white p-6 rounded-lg shadow-md flex justify-between items-center"><div><h3 class="text-lg font-bold text-brand-blue">Security Guard</h3><p class="text-sm text-gray-500">Location: New Delhi, India</p><p class="mt-2 text-gray-600">Seeking vigilant and physically fit individuals for various posts across the city. Prior experience is a plus.</p></div><button class="bg-brand-yellow text-brand-blue font-bold py-2 px-4 rounded-lg hover:bg-yellow-300 transition duration-300">Apply Now</button></div>
+                <div class="bg-white p-6 rounded-lg shadow-md flex justify-between items-center"><div><h3 class="text-lg font-bold text-brand-blue">Security Supervisor</h3><p class="text-sm text-gray-500">Location: Gurgaon, Haryana</p><p class="mt-2 text-gray-600">Experienced supervisor needed to manage a team of guards, handle scheduling, and client communication.</p></div><button class="bg-brand-yellow text-brand-blue font-bold py-2 px-4 rounded-lg hover:bg-yellow-300 transition duration-300">Apply Now</button></div>
+                <div class="bg-white p-6 rounded-lg shadow-md flex justify-between items-center"><div><h3 class="text-lg font-bold text-brand-blue">Personal Security Officer (PSO)</h3><p class="text-sm text-gray-500">Location: Noida, Uttar Pradesh</p><p class="mt-2 text-gray-600">Ex-servicemen or individuals with certified weapons training required for VIP protection duties.</p></div><button class="bg-brand-yellow text-brand-blue font-bold py-2 px-4 rounded-lg hover:bg-yellow-300 transition duration-300">Apply Now</button></div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="page-section hidden">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-brand-blue">Meet Our Leadership</h2>
+                <p class="text-gray-600 mt-2">The experienced professionals guiding our mission.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Members -->
+                <div class="bg-white text-center p-6 rounded-lg shadow-lg"><img class="w-32 h-32 rounded-full mx-auto" src="https://placehold.co/200x200/0d1b3e/FFFFFF?text=CEO" alt="CEO"><h3 class="mt-4 text-xl font-bold text-brand-blue">Mr. Ramesh Singh</h3><p class="text-brand-yellow font-semibold">Founder & CEO</p></div>
+                <div class="bg-white text-center p-6 rounded-lg shadow-lg"><img class="w-32 h-32 rounded-full mx-auto" src="https://placehold.co/200x200/0d1b3e/FFFFFF?text=COO" alt="COO"><h3 class="mt-4 text-xl font-bold text-brand-blue">Mrs. Sunita Verma</h3><p class="text-brand-yellow font-semibold">Chief of Operations</p></div>
+                <div class="bg-white text-center p-6 rounded-lg shadow-lg"><img class="w-32 h-32 rounded-full mx-auto" src="https://placehold.co/200x200/0d1b3e/FFFFFF?text=CSO" alt="CSO"><h3 class="mt-4 text-xl font-bold text-brand-blue">Col. Vikram Rathore (Retd.)</h3><p class="text-brand-yellow font-semibold">Chief Security Officer</p></div>
+                <div class="bg-white text-center p-6 rounded-lg shadow-lg"><img class="w-32 h-32 rounded-full mx-auto" src="https://placehold.co/200x200/0d1b3e/FFFFFF?text=HR" alt="HR Head"><h3 class="mt-4 text-xl font-bold text-brand-blue">Ms. Priya Sharma</h3><p class="text-brand-yellow font-semibold">Head of Human Resources</p></div>
+            </div>
+        </section>
+
+        <!-- Competitors Section -->
+        <section id="competitors" class="page-section hidden">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-brand-blue">Security Landscape in Delhi NCR</h2>
+                <p class="text-gray-600 mt-2">A look at other established security providers in the region.</p>
+            </div>
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <ul class="divide-y divide-gray-200">
+                    <!-- Competitor List -->
+                    <li class="py-4 flex justify-between items-center"><span class="font-semibold text-gray-700">G4S India</span><span class="text-sm text-gray-500">Global presence, wide range of services.</span></li>
+                    <li class="py-4 flex justify-between items-center"><span class="font-semibold text-gray-700">Securitas India</span><span class="text-sm text-gray-500">Focus on specialized guarding and technology.</span></li>
+                    <li class="py-4 flex justify-between items-center"><span class="font-semibold text-gray-700">SIS Group (Security and Intelligence Services)</span><span class="text-sm text-gray-500">One of the largest providers in India.</span></li>
+                    <li class="py-4 flex justify-between items-center"><span class="font-semibold text-gray-700">Peregrine Guarding</span><span class="text-sm text-gray-500">Known for corporate and industrial security.</span></li>
+                    <li class="py-4 flex justify-between items-center"><span class="font-semibold text-gray-700">Tops Security (Topsgrup)</span><span class="text-sm text-gray-500">Another major player with a long history.</span></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-blue text-white mt-12">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 SLN Security Private Limited. All Rights Reserved.</p>
+            <p class="text-sm text-gray-400 mt-2">Your Safety, Our Priority.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Navigation and Page Switching Logic ---
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pageSections = document.querySelectorAll('.page-section');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            const showPage = (pageId) => {
+                pageSections.forEach(section => {
+                    if (section.id !== pageId) {
+                        section.classList.add('hidden');
+                    } else {
+                        section.classList.remove('hidden');
+                    }
+                });
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.dataset.page === pageId);
+                });
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            };
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const pageId = this.dataset.page;
+                    showPage(pageId);
+                    // Scroll to top of the main content area for better UX
+                    document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            showPage('home'); // Set initial page
+
+            // --- Gemini AI Planner Logic ---
+            const generateBtn = document.getElementById('generate-plan-btn');
+            const promptInput = document.getElementById('security-prompt');
+            const resultsContainer = document.getElementById('planner-results');
+            const loader = document.getElementById('loader');
+            const resultsContent = document.getElementById('results-content');
+            const geminiOutput = document.getElementById('gemini-output');
+            const errorMessage = document.getElementById('error-message');
+
+            generateBtn.addEventListener('click', async () => {
+                const userInput = promptInput.value.trim();
+                if (!userInput) {
+                    alert("Please describe your security needs.");
+                    return;
+                }
+
+                // Show loader and hide previous results/errors
+                resultsContainer.classList.remove('hidden');
+                loader.classList.remove('hidden');
+                resultsContent.classList.add('hidden');
+                errorMessage.classList.add('hidden');
+
+                // Construct the prompt for the Gemini API
+                const fullPrompt = `You are an expert security consultant for SLN Security, a company in Delhi NCR, India. A potential client has described their needs. Based on their description below, provide a preliminary security plan.
+                
+                Client's Description: "${userInput}"
+
+                Your response should be formatted in Markdown and include these sections:
+                1.  **Recommended Services:** Suggest 2-3 relevant services from this list: Corporate Security, Event Security, Residential Security, Bouncer Services, Personal Security Officer (PSO), Industrial Security.
+                2.  **Personnel Estimate:** Provide a rough estimate of the number of security personnel required (e.g., guards, supervisors).
+                3.  **Key Considerations:** List at least 4 critical security points the client should think about (e.g., Access Control, Perimeter Security, CCTV Surveillance, Emergency Response Plan, Crowd Management, Visitor Management).
+                4.  **Disclaimer:** Add a brief, friendly disclaimer that this is a preliminary estimate and a detailed consultation is recommended for an accurate quote.`;
+
+                try {
+                    // Prepare the API call
+                    let chatHistory = [{ role: "user", parts: [{ text: fullPrompt }] }];
+                    const payload = { contents: chatHistory };
+                    const apiKey = ""; // API key will be handled by the environment
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`API request failed with status ${response.status}`);
+                    }
+
+                    const result = await response.json();
+                    
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        
+                        const text = result.candidates[0].content.parts[0].text;
+                        
+                        // Simple Markdown to HTML conversion
+                        let htmlResult = text
+                            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
+                            .replace(/\n\*/g, '\n<ul>\n  <li>') // Start of list
+                            .replace(/(\n\s*\*)/g, '</li>\n  <li>') // List items
+                            .replace(/(<\/li>\n<\/ul>)/, '</li>\n</ul>') // End of list fix
+                            .replace(/<\/li>\n  <li>/g, '</li><li>')
+                            .replace(/\n/g, '<br>');
+
+                        // Handle numbered lists if any
+                        htmlResult = htmlResult.replace(/(\d+\.\s)/g, '<br>$1');
+
+                        geminiOutput.innerHTML = htmlResult;
+                        
+                        // Hide loader and show content
+                        loader.classList.add('hidden');
+                        resultsContent.classList.remove('hidden');
+
+                    } else {
+                        throw new Error("Invalid response structure from API.");
+                    }
+
+                } catch (error) {
+                    console.error("Error calling Gemini API:", error);
+                    // Hide loader and show error message
+                    loader.classList.add('hidden');
+                    errorMessage.classList.remove('hidden');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
